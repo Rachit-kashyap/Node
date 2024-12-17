@@ -18,11 +18,10 @@ app.post("/search", async (req, res) => {
 
     try {
         const _query = `https://lexica.art/api/v1/search?q=${encodeURIComponent(query)}`;
-        const response = await axios.get(_query); // Sending a GET request
+        const response = await axios.get(_query);
 
-        const images = response.data.images; // Assuming the API returns images in a property named 'images'
+        const images = response.data.images; 
 
-        // Redirect to the home page with the results
         res.render("data", { images });
     } catch (error) {
         console.error("Error fetching data from Lexica API:", error.message);
